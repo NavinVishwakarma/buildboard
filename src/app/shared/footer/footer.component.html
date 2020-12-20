@@ -3,18 +3,19 @@
     <div class="container">
       <div class="fooetr-row">
         <div class="footer-col">
-          <a href="index.html"><img src="./assets/images/logo2.png" alt=""></a>
+          <a [routerLink]="['/home']"><img src="./assets/images/logo2.png" alt=""></a>
         </div>
         <div class="footer-col">
           <div class="quick-links">
             <h3>Quick Links</h3>
 
             <ul>
-              <li class="current-menu-item"><a href="index.html">Home</a></li>
-              <li><a href="about-us.html">About Us</a></li>
-              <li><a href="product-page.html">Our products</a></li>
-              <li><a href="#url">Our Services</a></li>
-              <li><a href="#url">Contact Us</a></li>
+              <li><a [routerLink]="['/home']" routerLinkActive="current-menu-item">Home</a>
+              </li>
+              <li><a [routerLink]="['/about-us']" routerLinkActive="current-menu-item">About Us</a></li>
+              <li><a [routerLink]="['/products']" routerLinkActive="current-menu-item">Our products</a></li>
+              <li><a [routerLink]="['/services']" routerLinkActive="current-menu-item">Our Services</a></li>
+              <li><a [routerLink]="['/contact']" routerLinkActive="current-menu-item">Contact Us</a></li>
             </ul>
           </div>
         </div>
