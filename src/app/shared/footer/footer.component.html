@@ -12,10 +12,12 @@
             <ul>
               <li><a [routerLink]="['/home']" routerLinkActive="current-menu-item">Home</a>
               </li>
-              <li><a [routerLink]="['/about-us']" routerLinkActive="current-menu-item">About Us</a></li>
-              <li><a [routerLink]="['/products']" routerLinkActive="current-menu-item">Our products</a></li>
-              <li><a [routerLink]="['/services']" routerLinkActive="current-menu-item">Our Services</a></li>
-              <li><a [routerLink]="['/contact']" routerLinkActive="current-menu-item">Contact Us</a></li>
+              <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/about-us']"
+                  routerLinkActive="current-menu-item">About Us</a></li>
+              <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/products']"
+                  routerLinkActive="current-menu-item">Our products</a></li>
+              <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact']"
+                  routerLinkActive="current-menu-item">Contact Us</a></li>
             </ul>
           </div>
         </div>
