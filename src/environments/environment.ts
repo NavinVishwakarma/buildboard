@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  BASE_API_ENDPOINT: 'http://buildboard.herokuapp.com/api/',
+  BASE_IMAGE_ENDPOINT: 'http://buildboard.herokuapp.com/uploads/',
 };
 
 /*

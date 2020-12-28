@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-home',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  productFeaturedList: any;
+  bannerImage: any;
+  constructor(
+    private api: ApiService
+  ) { }
 
-  constructor() { }
   slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -37,6 +42,34 @@ export class HomeComponent implements OnInit {
     ]
   };
   ngOnInit(): void {
+    this.getProductFeaturedList();
+    this.getBannerList();
   }
-
+  getProductFeaturedList() {
+    this.api.get('user/products').subscribe((res: any) => {
+      if (res.success) {
+        if (res.data.length > 0) {
+          this.productFeaturedList = res.data.map(item => {
+            if (item.is_featured) {
+              item.is_featured = item.is_featured.toLowerCase();
+            }
+            return item;
+          });
+        } else {
+          this.productFeaturedList = undefined;
+        }
+      } else {
+        this.productFeaturedList = undefined;
+      }
+    });
+  }
+  getBannerList() {
+    this.api.get('user/banners').subscribe((res: any) => {
+      if (res.success) {
+        this.bannerImage = res.data;
+      } else {
+        this.bannerImage = undefined;
+      }
+    });
+  }
 }

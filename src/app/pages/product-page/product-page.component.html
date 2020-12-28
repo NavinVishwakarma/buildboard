@@ -8,199 +8,29 @@
 <section class="product-listing-page cmn-gap">
   <div class="container">
     <div class="row product-row">
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product01.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
+      <ng-container *ngIf="productList">
+        <div class="col-lg-3 col-md-6 produtc-col" *ngFor="let item of productList">
+          <div class="product-card">
+            <div class="product-image">
+              <a><img [src]="item?.image ? item?.image : './assets/images/product01.jpg'" alt=""></a>
+              <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
             </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product02.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
+            <div class="product-cont">
+              <h5><a>{{item?.name}}</a></h5>
+              <div class="price">
+                <span>₹ {{item?.price | number: '.2'}}</span>
+                <span>₹ 30,797</span>
+              </div>
             </div>
+            <a class="cmn-btn">Buy Now</a>
           </div>
-          <a class="cmn-btn">Buy Now</a>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product03.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product04.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product01.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product02.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product03.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product04.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
+      </ng-container>
 
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product01.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product02.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product03.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 produtc-col">
-        <div class="product-card">
-          <div class="product-image">
-            <a><img src="./assets/images/product04.jpg" alt=""></a>
-            <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
-          </div>
-          <div class="product-cont">
-            <h5><a>Lorem Ipsum is simply dummy</a></h5>
-            <div class="price">
-              <span>₹ 19,999</span>
-              <span>₹ 30,797</span>
-            </div>
-          </div>
-          <a class="cmn-btn">Buy Now</a>
-        </div>
-      </div>
+      <ng-container *ngIf="!productList">
+        <p>No Product Found</p>
+      </ng-container>
+
     </div>
   </div>
 </section>

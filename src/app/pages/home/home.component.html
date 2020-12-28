@@ -3,19 +3,9 @@
 
   <div class="banner-slider">
     <ngx-slick-carousel #slickModal="slick-carousel" class="carousel" [config]="slideConfig">
-      <div ngxSlickItem>
+      <div ngxSlickItem *ngFor="let item of bannerImage">
         <figure class="slide">
-          <img src="./assets/images/banner-image.jpg" alt="">
-        </figure>
-      </div>
-      <div ngxSlickItem>
-        <figure class="slide">
-          <img src="./assets/images/banner-image.jpg" alt="">
-        </figure>
-      </div>
-      <div ngxSlickItem>
-        <figure class="slide">
-          <img src="./assets/images/banner-image.jpg" alt="">
+          <img [src]="item?.image ? item?.image : './assets/images/banner-image.jpg'" alt="">
         </figure>
       </div>
     </ngx-slick-carousel>
@@ -32,145 +22,36 @@
   <div class="container">
     <h2>Our Products</h2>
     <div class="row">
-      <div class="col-lg-3 col-md-6 product-col">
-        <div class="product-card">
-          <div class="card-image">
-            <a href="#url">
-              <img src="./assets/images/product01.jpg" alt="">
-            </a>
-          </div>
+      <ng-container *ngIf="productFeaturedList">
+        <ng-container *ngFor="let item of productFeaturedList| slice:0:8">
+          <div class="col-lg-3 col-md-6 product-col" *ngIf="item?.is_featured === 'yes'">
+            <div class="product-card">
+              <div class="card-image">
+                <a>
+                  <img [src]="item?.image ? item?.image : './assets/images/product01.jpg'" alt="">
+                </a>
+              </div>
 
-          <div class="card-cont">
-            <h4>Lorem Ipsum</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and.
-            </p>
-          </div>
+              <div class="card-cont">
+                <h4>{{item?.name}}</h4>
+                <!-- [innerHTML]="item?.description" -->
+                <p>
+                  Lorem Ipsum is simply dummy text of the printing and.
+                </p>
+              </div>
 
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 product-col">
-        <div class="product-card">
-          <div class="card-image">
-            <a href="#url">
-              <img src="./assets/images/product02.jpg" alt="">
-            </a>
+            </div>
           </div>
+        </ng-container>
+      </ng-container>
 
-          <div class="card-cont">
-            <h4>Lorem Ipsum</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and.
-            </p>
-          </div>
+      <ng-container *ngIf="!productFeaturedList">
+        <p>No Product Found</p>
+      </ng-container>
 
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 product-col">
-        <div class="product-card">
-          <div class="card-image">
-            <a href="#url">
-              <img src="./assets/images/product03.jpg" alt="">
-            </a>
-          </div>
-
-          <div class="card-cont">
-            <h4>Lorem Ipsum</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and.
-            </p>
-          </div>
-
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 product-col">
-        <div class="product-card">
-          <div class="card-image">
-            <a href="#url">
-              <img src="./assets/images/product04.jpg" alt="">
-            </a>
-          </div>
-
-          <div class="card-cont">
-            <h4>Lorem Ipsum</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and.
-            </p>
-          </div>
-
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 product-col">
-        <div class="product-card">
-          <div class="card-image">
-            <a href="#url">
-              <img src="./assets/images/product01.jpg" alt="">
-            </a>
-          </div>
-
-          <div class="card-cont">
-            <h4>Lorem Ipsum</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and.
-            </p>
-          </div>
-
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 product-col">
-        <div class="product-card">
-          <div class="card-image">
-            <a href="#url">
-              <img src="./assets/images/product02.jpg" alt="">
-            </a>
-          </div>
-
-          <div class="card-cont">
-            <h4>Lorem Ipsum</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and.
-            </p>
-          </div>
-
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 product-col">
-        <div class="product-card">
-          <div class="card-image">
-            <a href="#url">
-              <img src="./assets/images/product03.jpg" alt="">
-            </a>
-          </div>
-
-          <div class="card-cont">
-            <h4>Lorem Ipsum</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and.
-            </p>
-          </div>
-
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 product-col">
-        <div class="product-card">
-          <div class="card-image">
-            <a href="#url">
-              <img src="./assets/images/product04.jpg" alt="">
-            </a>
-          </div>
-
-          <div class="card-cont">
-            <h4>Lorem Ipsum</h4>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and.
-            </p>
-          </div>
-
-        </div>
-      </div>
     </div>
 
-    <div class="button text-center">
+    <div class="button text-center" *ngIf="productFeaturedList?.length > 8">
       <a [routerLink]="['/products']" routerLinkActive="router-link-active" class="cmn-btn">Show More</a>
     </div>
   </div>
