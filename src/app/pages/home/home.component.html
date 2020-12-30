@@ -1,6 +1,4 @@
 <section class="banner-section">
-
-
   <div class="banner-slider">
     <ngx-slick-carousel #slickModal="slick-carousel" class="carousel" [config]="slideConfig">
       <div ngxSlickItem *ngFor="let item of bannerImage">
@@ -10,12 +8,12 @@
       </div>
     </ngx-slick-carousel>
   </div>
-  <div class="banner-cont container">
+  <!-- <div class="banner-cont container">
     <div class="banner-container">
       <h1>Lorem Ipsum is simply dummy text </h1>
       <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
     </div>
-  </div>
+  </div> -->
 </section>
 
 <section class="product-section cmn-gap">
@@ -24,7 +22,7 @@
     <div class="row">
       <ng-container *ngIf="productFeaturedList">
         <ng-container *ngFor="let item of productFeaturedList| slice:0:8">
-          <div class="col-lg-3 col-md-6 product-col" *ngIf="item?.is_featured === 'yes'">
+          <div class="col-lg-3 col-md-6 product-col">
             <div class="product-card">
               <div class="card-image">
                 <a>

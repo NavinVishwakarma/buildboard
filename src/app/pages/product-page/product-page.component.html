@@ -9,10 +9,10 @@
   <div class="container">
     <div class="row product-row">
       <ng-container *ngIf="productList">
-        <div class="col-lg-3 col-md-6 produtc-col" *ngFor="let item of productList">
+        <div class="col-lg-3 col-md-6 produtc-col" *ngFor="let item of productList| slice:0:12">
           <div class="product-card">
             <div class="product-image">
-              <a><img [src]="item?.image ? item?.image : './assets/images/product01.jpg'" alt=""></a>
+              <a><img class="image" [src]="item?.image ? item?.image : './assets/images/product01.jpg'" alt=""></a>
               <a class="cart"><img src="./assets/images/shopping-cart.svg" alt=""></a>
             </div>
             <div class="product-cont">
