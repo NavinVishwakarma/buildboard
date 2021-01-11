@@ -1,7 +1,25 @@
+<!-- <header class="main-head">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" routerLink='/'><img src="./assets/images/logo.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+
+    </nav>
+  </div>
+
+</header> -->
 <header class="main-head">
   <div class="container">
     <nav class="navbar navbar-expand-lg navbar-light">
-      <a class="navbar-brand" [routerLink]="['/home']"><img src="./assets/images/logo.png" alt=""></a>
+
+      <a class="navbar-brand" routerLink='./'><img src="./assets/images/logo01.png" alt=""></a>
+      <a class="logo-2" routerLink='./'><img src="./assets/images/logo02.png" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
@@ -11,18 +29,27 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/home']"
-              routerLinkActive="current-menu-item">Home</a></li>
+          <li class="nav-item"><a data-toggle="collapse" data-target=".navbar-collapse.show" routerLink='./'
+              routerLinkActive="current-menu-item" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+
           <li class="nav-item"><a data-toggle="collapse" data-target=".navbar-collapse.show"
               [routerLink]="['/about-us']" routerLinkActive="current-menu-item">About us</a>
           </li>
           <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/products']"
               routerLinkActive="current-menu-item">Products</a></li>
-          <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact']"
-              routerLinkActive="current-menu-item">Contact</a></li>
+
+          <li class="menu-item-has-children">
+            <a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact-us']"
+              routerLinkActive="current-menu-item" (click)="setValue('Contact Us')">Contact</a>
+            <ul class="sub-menu">
+              <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact-us']"
+                  routerLinkActive="current-menu-item" (click)="setValue('Contact Us')">Contact Us</a></li>
+              <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact-us']"
+                  routerLinkActive="current-menu-item" (click)="setValue('Partner')">Partner With Us</a></li>
+            </ul>
+          </li>
         </ul>
       </div>
     </nav>
   </div>
-
 </header>

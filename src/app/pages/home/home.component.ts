@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class HomeComponent implements OnInit {
   productFeaturedList: any;
   bannerImage: any;
+  testimonial: any;
   constructor(
     private api: ApiService
   ) { }
@@ -44,6 +45,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getProductFeaturedList();
     this.getBannerList();
+    this.getTestimonial();
   }
   getProductFeaturedList() {
     this.api.get('user/products').subscribe((res: any) => {
@@ -69,6 +71,15 @@ export class HomeComponent implements OnInit {
         this.bannerImage = res.data;
       } else {
         this.bannerImage = undefined;
+      }
+    });
+  }
+  getTestimonial() {
+    this.api.get('user/testimonials').subscribe((res: any) => {
+      if (res.success) {
+        this.testimonial = res.data;
+      } else {
+        this.testimonial = undefined;
       }
     });
   }

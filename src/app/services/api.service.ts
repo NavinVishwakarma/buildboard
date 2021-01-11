@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
@@ -46,4 +46,20 @@ export class ApiService {
     return this.http.get(`${this.API_URL}${path}`, { headers: this.httpOptions.headers, params })
       .pipe(catchError(this.formatErrors));
   }
+
+  post(path: any, body: object = {}) {
+    return this.http.post(`${this.API_URL}${path}`, body, this.httpOptions).pipe(catchError(this.formatErrors));
+  }
+
+
+  postMultiData(path: string, file: FormData): Observable<any> {
+    const httpOptionsimg = {
+      headers: new HttpHeaders({
+        Accept: 'multipart/form-data',
+        'x-access-token': this.TOKEN !== undefined ? this.TOKEN : ''
+      })
+    };
+    return this.http.post(`${this.API_URL}${path}`, file, httpOptionsimg).pipe(catchError(this.formatErrors));
+  }
+
 }

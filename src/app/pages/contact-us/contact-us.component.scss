@@ -1,0 +1,17 @@
+
+.form-input{
+  select {
+    color: #878787;
+  }
+}
+.custom-file{
+  input{
+    display: none;
+  }
+  .custom-file-label{
+    &::after{
+      display: none;
+    }
+  }
+  }
+

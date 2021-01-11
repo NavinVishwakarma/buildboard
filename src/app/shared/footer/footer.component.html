@@ -3,20 +3,20 @@
     <div class="container">
       <div class="fooetr-row">
         <div class="footer-col">
-          <a [routerLink]="['/home']"><img src="./assets/images/logo2.png" alt=""></a>
+          <a [routerLink]="['']"><img src="./assets/images/logo.png" alt=""></a>
         </div>
         <div class="footer-col">
           <div class="quick-links">
             <h3>Quick Links</h3>
-
             <ul>
-              <li><a [routerLink]="['/home']" routerLinkActive="current-menu-item">Home</a>
+              <li><a routerLink='/' routerLinkActive="current-menu-item"
+                  [routerLinkActiveOptions]="{exact: true}">Home</a>
               </li>
               <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/about-us']"
                   routerLinkActive="current-menu-item">About Us</a></li>
               <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/products']"
                   routerLinkActive="current-menu-item">Our products</a></li>
-              <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact']"
+              <li><a data-toggle="collapse" data-target=".navbar-collapse.show" [routerLink]="['/contact-us']"
                   routerLinkActive="current-menu-item">Contact Us</a></li>
             </ul>
           </div>
@@ -30,11 +30,6 @@
                 <span><img src="./assets/images/placeholder.svg" alt=""></span>
                 <p>Bhumi Arcade, 1st Level, Lakadganj Nagpur 440008.</p>
               </li>
-
-              <!-- <li>
-                <span><img src="./assets/images/call.svg" alt=""></span>
-                <a href="tel:8956877763">89568 77763</a>
-              </li> -->
               <li>
                 <span><img src="./assets/images/call.svg" alt=""></span>
                 <a href="tel:8830611703">88306 11703</a>
@@ -50,16 +45,17 @@
         <div class="footer-col">
           <div class="footer-social">
             <h3>Social Media</h3>
-            <div>
-              <ul>
-                <li><a href="https://www.facebook.com/buildboardfurnishers/" target="_blank"><img
-                      src="./assets/images/facebook.svg" alt=""></a></li>
-                <!-- <li><a href="#url"><img src="./assets/images/twitter.svg" alt=""></a></li> -->
-                <li><a href="https://instagram.com/buildboardfurnishers?igshid=hi8trw08gw3r" target="_blank"><img
-                      src="./assets/images/instagram.svg" alt=""></a></li>
-              </ul>
-            </div>
-
+            <ul>
+              <li><a href="https://www.facebook.com/buildboardfurnishers/" target="_blank"><img
+                    src="./assets/images/facebook.svg" alt=""></a></li>
+              <li><a href="https://instagram.com/buildboardfurnishers?igshid=hi8trw08gw3r" target="_blank"><img
+                    src="./assets/images/instagram.svg" alt=""></a></li>
+              <li><a href="https://www.linkedin.com/mwlite/company/buildboard-furnishers" target="_blank"><img
+                    src="./assets/images/linkedin.svg" alt=""></a></li>
+              <li><a href="https://wa.me/message/3ZKV5GSLCQ7SP1" target="_blank"><img src="./assets/images/whatsapp.svg"
+                    alt=""></a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -68,7 +64,16 @@
 
   <div class="copy-right">
     <div class="container">
-      <p>© Copyright 2020.BUILDBOARD-FURNISHERS. All rights reserved.</p>
+      <div class="copyright-row">
+        <p>© Copyright 2020.BUILDBOARD-FURNISHERS. All rights reserved.</p>
+        <div class="copyright-link">
+          <ul>
+            <li><a [routerLink]="['/privacy-policy']" routerLinkActive="current-menu-item">Privacy Policy</a></li>
+            <li><a [routerLink]="['/term-and-condition']" routerLinkActive="current-menu-item">terms and conditions</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 

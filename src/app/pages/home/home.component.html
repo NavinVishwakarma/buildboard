@@ -8,14 +8,7 @@
       </div>
     </ngx-slick-carousel>
   </div>
-  <!-- <div class="banner-cont container">
-    <div class="banner-container">
-      <h1>Lorem Ipsum is simply dummy text </h1>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting</p>
-    </div>
-  </div> -->
 </section>
-
 <section class="product-section cmn-gap">
   <div class="container">
     <h2>Our Products</h2>
@@ -33,9 +26,8 @@
               <div class="card-cont">
                 <h4>{{item?.name}}</h4>
                 <!-- [innerHTML]="item?.description" -->
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and.
-                </p>
+                <!-- <p [innerHTML]="item?.description">
+                </p> -->
               </div>
 
             </div>
@@ -60,196 +52,19 @@
     <h2>Testimonial</h2>
     <!-- <div class="review-slider"> -->
     <ngx-slick-carousel class="carousel" [config]="slideConfigtestimonial">
-      <div ngxSlickItem class="review-col">
+      <div ngxSlickItem class="review-col" *ngFor="let item of testimonial">
         <div class="review-card">
           <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
+            <img [src]="item.image? item.image : './assets/images/MH-avatar-noImage.png'" alt="">
           </div>
           <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
+            <p [innerHTML]="item?.description">
             </p>
-            <span>John Doe</span>
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-            <span>John Doe</span>
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-            <span>John Doe</span>
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-            <span>John Doe</span>
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-            <span>John Doe</span>
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-            <span>John Doe</span>
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-            <span>John Doe</span>
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-            <span>John Doe</span>
-          </div>
-        </div>
-      </div>
-      <div ngxSlickItem class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-            <span>John Doe</span>
+            <span>{{item?.name}}</span>
           </div>
         </div>
       </div>
     </ngx-slick-carousel>
-    <!-- <div class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-
-            <span>John Doe</span>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-
-            <span>John Doe</span>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="review-col">
-        <div class="review-card">
-          <div class="review-image">
-            <img src="./assets/images/user.png" alt="">
-          </div>
-          <div class="review-cont">
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type
-            </p>
-
-            <span>John Doe</span>
-
-          </div>
-        </div>
-      </div> -->
-    <!-- </div> -->
   </div>
 </section>
 
@@ -295,7 +110,7 @@
   </div>
 </section>
 
-<section class="app-section">
+<!-- <section class="app-section">
   <div class="container">
     <div class="row app-row">
       <div class="col-lg-6 app-left">
@@ -304,14 +119,14 @@
         </div>
       </div>
       <div class="col-lg-6 app-right">
-        <!-- <div class="app-cont">
+        <div class="app-cont">
           <h2>Download Our App</h2>
           <div class="d-link-wrap">
             <a href="#url"><img src="./assets/images/play-store.png" alt=""></a>
             <a href="#url"><img src="./assets/images/apple-stropre.png" alt=""></a>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
