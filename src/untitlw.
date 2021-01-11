@@ -1,0 +1,18 @@
+full_name: ert
+last_name: ertert
+email: gd@y.com
+mobile: 2342342342
+pincode: 34234
+city: sdfsdf
+zipcode: 34234
+company_type: 1
+company_name: sdfsf
+company_number: 2342323423
+business_number: 3242342342
+gst: 3423234234
+catelog: (binary)
+description: sdf
+
+Request URL: https://buildboard.herokuapp.com/api/user/partner
+Request Method: POST
+Status Code: 500 Internal Server Error

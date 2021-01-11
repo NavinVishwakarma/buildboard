@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -56,10 +57,19 @@ export class ApiService {
     const httpOptionsimg = {
       headers: new HttpHeaders({
         Accept: 'multipart/form-data',
-        'x-access-token': this.TOKEN !== undefined ? this.TOKEN : ''
       })
     };
     return this.http.post(`${this.API_URL}${path}`, file, httpOptionsimg).pipe(catchError(this.formatErrors));
   }
-
+  alert(message: string, type: any) {
+    return Swal.fire({
+      title: message,
+      icon: type,
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+  // 'x-access-token': this.TOKEN !== undefined ? this.TOKEN : ''
 }

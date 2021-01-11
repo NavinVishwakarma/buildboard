@@ -9,7 +9,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { TermsAndConditionComponent } from './terms-and-condition/terms-and-condition.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -24,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PagesRoutingModule,
     SlickCarouselModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule,
   ]
 })
 export class PagesModule { }
