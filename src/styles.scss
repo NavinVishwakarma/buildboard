@@ -1094,9 +1094,9 @@ h1 {
 .sub-menu .sub-menu > li > a{padding-left: 40px;}
 .sub-menu .sub-menu .sub-menu > li > a{padding-left: 60px;}
 
-.banner-section figure > img{ height: 400px; object-fit: cover; object-position: center; }
+// .banner-section figure > img{ height: 400px; object-fit: cover; object-position: center; }
 
-.banner-section .slick-list { height: 400px; }
+// .banner-section .slick-list { height: 400px; }
 
 .banner-section .banner-cont h1{ font-size: 30px; }
 
@@ -1152,9 +1152,10 @@ input[type="submit"]{
 
 .app-section .app-right .d-link-wrap a:last-child{ margin-bottom: 0; }
 
-.inner-banner > img{ height: 350px; object-fit: cover; object-position: center; }
+.inner-banner > img{  object-fit: cover; object-position: center; }
+// height: 350px;
 
-.inner-banner .banner-cont h1{ font-size: 30px; }
+.inner-banner .banner-cont h1{ font-size: 28px; }
 
 .contact-info ul li{ width: 100%; margin-right: 0; }
 
@@ -1200,8 +1201,8 @@ input[type="submit"]{
 .banner-section .slick-next,
 .banner-section .slick-prev{ width: 20px; height: 20px; }
 
-.banner-section figure > img,
-.banner-section .slick-list{ height: 330px; }
+// .banner-section figure > img,
+// .banner-section .slick-list{ height: 330px; }
 
 .cmn-gap {
   padding-top: 40px;
@@ -1214,7 +1215,8 @@ body{ font-size: 14px; }
 
 .footer-sec .footer-col:last-child{ margin-bottom: 0; }
 
-.inner-banner > img{ height: 250px; object-fit: cover; object-position: center; }
+.inner-banner > img{  object-fit: cover; object-position: center; }
+// height: 250px;
 
 }
 

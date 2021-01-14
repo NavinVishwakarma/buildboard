@@ -40,10 +40,10 @@
         <div class="row contact-row">
           <div class="col-md-6 form-sec-col">
             <div class="form-input">
-              <input type="text" placeholder="First Name" formControlName="full_name">
+              <input type="text" placeholder="First Name" formControlName="first_name">
               <div class="error">
                 <p
-                  *ngIf="contactForm.controls.full_name.touched && contactForm.controls.full_name.hasError('required')">
+                  *ngIf="contactForm.controls.first_name.touched && contactForm.controls.first_name.hasError('required')">
                   This field is required.
                 </p>
               </div>
@@ -85,6 +85,9 @@
                   <p *ngIf="contactForm.controls.mobile.touched && contactForm.controls.mobile.hasError('required')">
                     This field is required.
                   </p>
+                  <p *ngIf="contactForm.controls['mobile'].errors?.mask">
+                    Mobile number must be at least 10 digits long.
+                  </p>
                 </div>
               </div>
             </div>
@@ -115,6 +118,9 @@
                   <p *ngIf="contactForm.controls.zipcode.touched && contactForm.controls.zipcode.hasError('required')">
                     This field is required.
                   </p>
+                  <p *ngIf="contactForm.controls['zipcode'].errors?.mask">
+                    Zip must be at least 5 digits long.
+                  </p>
                 </div>
               </div>
             </div>
@@ -124,10 +130,8 @@
             <div class="col-md-12 form-sec-col">
               <div class="form-input">
                 <select formControlName="company_type">
-                  <option selected>Company Type</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="">Company Type</option>
+                  <option *ngFor="let type of companyType" [value]="type?.name">{{type?.name}}</option>
                 </select>
               </div>
               <div class="error">
@@ -156,6 +160,9 @@
                     *ngIf="contactForm.controls.company_number.touched && contactForm.controls.company_number.hasError('required')">
                     This field is required.
                   </p>
+                  <p *ngIf="contactForm.controls['company_number'].errors?.mask">
+                    Company number must be at least 10 digits long.
+                  </p>
                 </div>
               </div>
             </div>
@@ -168,15 +175,21 @@
                     *ngIf="contactForm.controls.business_number.touched && contactForm.controls.business_number.hasError('required')">
                     This field is required.
                   </p>
+                  <p *ngIf="contactForm.controls['business_number'].errors?.mask">
+                    Business phone number must be at least 10 digits long.
+                  </p>
                 </div>
               </div>
             </div>
             <div class="col-md-12 form-sec-col">
               <div class="form-input">
-                <input type="text" placeholder="Gst number" formControlName="gst">
+                <input type="text" mask="00000" placeholder="Gst number" formControlName="gst">
                 <div class="error">
                   <p *ngIf="contactForm.controls.gst.touched && contactForm.controls.gst.hasError('required')">
                     This field is required.
+                  </p>
+                  <p *ngIf="contactForm.controls['gst'].errors?.mask">
+                    Gst number must be at least 5 digits long.
                   </p>
                 </div>
               </div>
@@ -189,12 +202,16 @@
               <p *ngIf="this.contactForm.controls.catelog.value">{{this.contactForm.controls.catelog.value.name}}
               </p>
             </div>
-
           </ng-container>
 
           <div class="col-md-12 form-sec-col">
             <div class="form-input">
               <textarea placeholder="Message" formControlName="description"></textarea>
+              <div class="error">
+                <p *ngIf="contactForm.controls['description'].errors?.minlength">
+                  Message must be at least 10 characters long.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -207,7 +224,5 @@
         </div>
       </form>
     </div>
-
   </div>
-
 </section>

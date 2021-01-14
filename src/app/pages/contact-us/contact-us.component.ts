@@ -12,6 +12,7 @@ export class ContactUsComponent implements OnInit {
   type: string;
   contactForm: FormGroup;
   catalogue: File;
+  companyType: any;
 
   constructor(
     private event: EventService,
@@ -20,6 +21,7 @@ export class ContactUsComponent implements OnInit {
 
   ngOnInit(): void {
     this.formInIt();
+    this.companyTypedata();
     this.event.contactUsValue.subscribe(res => {
       this.type = res;
       if (res === 'Partner') {
@@ -55,14 +57,24 @@ export class ContactUsComponent implements OnInit {
         this.contactForm.get('business_number').updateValueAndValidity();
       }
     });
-
+  }
+  companyTypedata() {
+    this.companyType = [
+      { name: 'Individual' },
+      { name: 'Sole Proprietorship Concern' },
+      { name: 'Partnership Firm – registered / unregistered.' },
+      { name: 'One Person Company.' },
+      { name: 'Private Company.' },
+      { name: 'Public Limited Company – Unlisted & Listed.' }, { name: 'Limited Liability Partnership.' },
+      { name: 'Hindu Undivided Family (HUF)' }, { name: 'Foreign Company.' },
+      { name: 'Trust' }];
   }
   formInIt() {
     this.contactForm = new FormGroup({
-      full_name: new FormControl('', Validators.required),
+      first_name: new FormControl('', Validators.required),
       last_name: new FormControl('', Validators.required),
       email: new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$/)]),
-      mobile: new FormControl('', Validators.required),
+      mobile: new FormControl('', [Validators.required]),
       pincode: new FormControl('', Validators.required),
       city: new FormControl('', Validators.required),
       zipcode: new FormControl('', Validators.required),
@@ -72,7 +84,7 @@ export class ContactUsComponent implements OnInit {
       business_number: new FormControl('', Validators.required),
       gst: new FormControl('', Validators.required),
       catelog: new FormControl(''),
-      description: new FormControl('')
+      description: new FormControl('', Validators.minLength(10))
     });
   }
   uploadDocumentInsuranceInit(e) {
@@ -87,25 +99,39 @@ export class ContactUsComponent implements OnInit {
     }
   }
   submit(formvalue) {
-    console.log(this.contactForm);
     if (this.contactForm.valid) {
+      let api;
       const data = new FormData();
-      data.append('full_name', formvalue.full_name);
+      data.append('first_name', formvalue.first_name);
       data.append('last_name', formvalue.last_name);
       data.append('email', formvalue.email);
-      data.append('mobile', formvalue.mobile);
-      data.append('pincode', formvalue.pincode);
-      data.append('city', formvalue.city);
-      data.append('zipcode', formvalue.zipcode);
-      data.append('company_type', formvalue.company_type);
-      data.append('company_name', formvalue.company_name);
-      data.append('company_number', formvalue.company_number);
-      data.append('business_number', formvalue.business_number);
-      data.append('gst', formvalue.gst);
-      data.append('catelog', formvalue.catelog);
+      if (this.type === 'Partner') {
+        data.append('mobile', formvalue.mobile);
+        data.append('pincode', formvalue.pincode);
+        data.append('city', formvalue.city);
+        data.append('zipcode', formvalue.zipcode);
+        data.append('company_type', formvalue.company_type);
+        data.append('company_name', formvalue.company_name);
+        data.append('company_number', formvalue.company_number);
+        data.append('business_number', formvalue.business_number);
+        data.append('gst', formvalue.gst);
+        data.append('catelog', formvalue.catelog);
+      }
+
       data.append('description', formvalue.description);
-      this.api.postMultiData('user/partner', data).subscribe((res => {
-        console.log(res);
+      if (this.type === 'Partner') {
+        api = 'user/partner';
+      } else {
+        api = 'user/contact-us';
+      }
+
+      this.api.postMultiData(api, data).subscribe((res => {
+        if (res.success) {
+          this.api.alert(res.message, 'success');
+          this.contactForm.reset();
+        } else {
+          this.api.alert(res.message, 'warning');
+        }
       }));
     } else {
       this.contactForm.markAllAsTouched();
